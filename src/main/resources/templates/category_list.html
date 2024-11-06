@@ -1,0 +1,25 @@
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content" class="container my-3">
+		<table class="table">
+			<thead class="table-dark">
+	            <tr>
+	                <th>번호</th>
+	                <th>카테고리명</th>
+	                <th>사용여부</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+				<!-- 타임리프 
+					$ : Spring MVC 모델 객체에서 저장된 데이터를 표현하기 
+					@ : 링크표현식
+				-->
+				<tr th:each="category , loop : ${categoryList}">
+					<td th:text="${loop.count}"></td>
+					<td th:text="${category.name}"></td>
+					<td th:text="${category.useFlag == 1 ? '사용':'미사용'}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/category/create}">카테고리 등록하기</a>
+	</div>
+</html>

@@ -1,0 +1,15 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container">
+    <h5 class="my-3 border-bottom pb-2">카테고리 등록</h5>
+    <!-- th:object는 form의 입력항목을 categoryForm과 연결  -->
+    <form th:action="@{/category/create}" th:object="${categoryForm}" method="post">
+		<div th:replace="~{form_errors :: formErrorsFragment}"></div>
+		
+		<div class="mb-3">
+			<label for="name" class="form-label">카테고리명</label>
+			<input type="text" th:field="*{name}" id="name" class="form-control">
+		</div>
+	</form>
+    
+</div>
+</html>
